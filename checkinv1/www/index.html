@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Licensed under the Apache License, Version 2.0 (the "License");
+//  you may not use this file except in compliance with the License.
+//  You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing, software
+//  distributed under the License is distributed on an "AS IS" BASIS,
+//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//  See the License for the specific language governing permissions and
+//  limitations under the License.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<html>
+
+  <head>
+    <title>Checkinv1</title>
+
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and 
+    height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.css">
+
+    <script src="js/jquery-1.8.2.min.js"></script> 
+    <script src="js/usergrid.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.mobile-1.4.3.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- ******************************************************************* -->
+
+    <!-- LOGIN -->
+
+    <div data-role="page" id="login-page" data-theme="a">
+
+      <div data-role="header" data-theme="a">
+        <h2>Login to Checkinv1</h2>
+      </div>
+
+      <div data-role="content">
+        <h2>Please Login</h2>
+
+        <label for="username">Username</label>
+        <input id="login-username" type="text" name="username">
+
+        <label for="password">Password</label>
+        <input id="login-password" type="password" name="password">
+
+        <a id="btn-compose" 
+           data-role="button" 
+           data-inline="true" 
+           onclick="login()"
+           >Login</a>
+
+        <p>Or <a href="#signup-page">sign-up</a> for a new account</p>
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
+    </div>
+
+    <!-- ******************************************************************* -->
+
+    <!-- SIGNUP -->
+
+    <div data-role="page" id="signup-page" data-theme="a">
+
+      <div data-role="header" data-theme="a">
+        <h2>Sign-up for Checkinv1</h2>
+      </div>
+
+      <div data-role="content">
+        <h2>New Account Info</h2>
+
+        <form name="signupForm" onsubmit="return signup()">
+          <label for="name">Name</label> 
+          <input type="text" name="name" required >
+
+          <label for="username">Username</label> 
+          <input type="text" name="username" required>
+
+          <label for="email">Email</label> 
+          <input type="email" name="email" required>
+
+          <label for="password">Password</label>
+          <input type="password" name="password" required>
+
+          <label for="passwordconfirm">Password (confirm)</label>
+          <input type="password" name="passwordconfirm" required>
+
+          <input id="btn-signup-save" type="submit" data-inline="true" value="Sign-up">
+          <a id="btn-signup-cancel" data-inline="true" href="#login-page">Cancel</a>
+        </form>
+
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
+    </div>
+
+    <!-- ******************************************************************* -->
+
+    <!-- CHECKIN PLACEHOLDER -->
+
+    <div data-role="page" id="checkin-list-page" data-theme="a">
+
+      <div data-role="header" data-theme="a">
+        <h2>Checkinv1</h2>
+      </div>
+
+      <div data-role="content">
+        Content coming soon...
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Logged in as: <span id="checkin-list-username"></span></h4>
+        <a id="btn-compose" 
+           onclick="logout()"
+           data-role="button" 
+           data-icon="plus" 
+           data-iconpos="right" 
+           data-inline="true" 
+           class="ui-btn-right"
+           >Logout</a>
+      </div>
+
+    </div>
+
+    <div data-role="footer" data-theme="a">
+      <h4>Powered by Apache Usergrid</h4>
+    </div>
+
+  </body>
+</html>
