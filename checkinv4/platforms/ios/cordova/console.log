@@ -1,0 +1,74 @@
+objc[51411]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-07 10:30:36.261 checkin1[51411:70b] Cannot find executable for CFBundle 0xa834280 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-07 10:30:36.270 checkin1[51411:70b] Cannot find executable for CFBundle 0xa853990 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-07 10:30:36.318 checkin1[51411:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-07 10:30:36.345 checkin1[51411:70b] Unlimited access to network resources
+2014-09-07 10:30:36.349 checkin1[51411:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-07 10:30:36.729 checkin1[51411:70b] [CDVTimer][file] 2.259016ms
+2014-09-07 10:30:36.800 checkin1[51411:70b] [CDVTimer][splashscreen] 71.022987ms
+2014-09-07 10:30:36.801 checkin1[51411:70b] [CDVTimer][TotalPluginStartup] 74.226022ms
+2014-09-07 10:30:36.916 checkin1[51411:70b] Resetting plugins due to page load.
+2014-09-07 10:30:37.119 checkin1[51411:70b] Finished load of: file:///Users/ApigeeCorporation/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/0411221C-2C85-43C1-A10B-A72683F81AA4/checkin1.app/www/index.html
+2014-09-07 10:30:55.576 checkin1[51411:70b] Received memory warning.
+objc[56948]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-07 11:50:07.225 checkin1[56948:70b] Cannot find executable for CFBundle 0xae3b460 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-07 11:50:07.231 checkin1[56948:70b] Cannot find executable for CFBundle 0xa9702f0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-07 11:50:07.262 checkin1[56948:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-07 11:50:07.269 checkin1[56948:70b] Unlimited access to network resources
+2014-09-07 11:50:07.272 checkin1[56948:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-09-07 11:50:07.431 checkin1[56948:70b] [CDVTimer][file] 1.811981ms
+2014-09-07 11:50:07.500 checkin1[56948:70b] [CDVTimer][splashscreen] 68.467975ms
+2014-09-07 11:50:07.500 checkin1[56948:70b] [CDVTimer][TotalPluginStartup] 71.038961ms
+2014-09-07 11:50:07.578 checkin1[56948:70b] Resetting plugins due to page load.
+2014-09-07 11:50:07.892 checkin1[56948:70b] Finished load of: file:///Users/ApigeeCorporation/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/0411221C-2C85-43C1-A10B-A72683F81AA4/checkin1.app/www/index.html
+2014-09-07 11:50:45.594 checkin1[56948:70b] POST http://10.1.1.161:8080/test-organization/checkin1/token?: 63ms
+2014-09-07 11:50:45.595 checkin1[56948:70b] process request POST http://10.1.1.161:8080/test-organization/checkin1/token: 87ms
+2014-09-07 11:51:18.037 checkin1[56948:70b] POST http://10.1.1.161:8080/test-organization/checkin1/users/snoopdave/activities?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 201ms
+2014-09-07 11:51:18.037 checkin1[56948:70b] process request POST http://10.1.1.161:8080/test-organization/checkin1/users/snoopdave/activities: 205ms
+2014-09-07 11:51:18.093 checkin1[56948:70b] GET http://10.1.1.161:8080/test-organization/checkin1/users/snoopdave/feed?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 53ms
+2014-09-07 11:51:18.093 checkin1[56948:70b] process request GET http://10.1.1.161:8080/test-organization/checkin1/users/snoopdave/feed: 57ms
+2014-09-07 11:51:23.384 checkin1[56948:70b] GET http://10.1.1.161:8080/test-organization/checkin1/activity/ce36b3d4-36a6-11e4-8539-c123542d64f5?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 26ms
+2014-09-07 11:51:23.384 checkin1[56948:70b] process request GET http://10.1.1.161:8080/test-organization/checkin1/activity/ce36b3d4-36a6-11e4-8539-c123542d64f5: 43ms
+2014-09-07 11:52:06.596 checkin1[56948:70b] GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 21ms
+2014-09-07 11:52:06.596 checkin1[56948:70b] process request GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0: 30ms
+2014-09-07 11:52:10.790 checkin1[56948:70b] GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 17ms
+2014-09-07 11:52:10.790 checkin1[56948:70b] process request GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0: 30ms
+2014-09-07 11:52:40.325 checkin1[56948:70b] GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0?access_token=YWMtuvjhXDamEeSgNE-1MGxe8gAAAUh02_biuUDVY0Pty4qXkqX6u42HptBtAQA: 21ms
+2014-09-07 11:52:40.326 checkin1[56948:70b] process request GET http://10.1.1.161:8080/test-organization/checkin1/activity/78c3106a-360a-11e4-ade1-db91d8f52ce0: 30ms
+objc[48432]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-10-11 12:12:42.772 checkin1[48432:70b] Cannot find executable for CFBundle 0x7a9a7900 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-10-11 12:12:42.785 checkin1[48432:70b] Cannot find executable for CFBundle 0x7a9b6a60 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-10-11 12:12:42.837 checkin1[48432:70b] Multi-tasking -> Device: YES, App: YES
+2014-10-11 12:12:42.851 checkin1[48432:70b] Unlimited access to network resources
+2014-10-11 12:12:42.855 checkin1[48432:70b] 
+
+Started backup to iCloud! Please be careful.
+Your application might rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines"
+You could find it at the following address https://developer.apple.com/icloud/documentation/data-storage/ .
+
+2014-10-11 12:12:43.013 checkin1[48432:70b] [CDVTimer][file] 1.361012ms
+2014-10-11 12:12:43.081 checkin1[48432:70b] [CDVTimer][splashscreen] 67.276001ms
+2014-10-11 12:12:43.082 checkin1[48432:70b] [CDVTimer][TotalPluginStartup] 69.494963ms
+2014-10-11 12:12:43.258 checkin1[48432:70b] Resetting plugins due to page load.
+2014-10-11 12:12:43.461 checkin1[48432:70b] Finished load of: file:///Users/ApigeeCorporation/Library/Developer/CoreSimulator/Devices/6F2CF7FF-47BB-4965-B956-1CEA03FDDEF5/data/Applications/4210F102-2401-41B8-9439-783CB87152CC/checkin1.app/www/index.html
+2014-10-11 12:13:08.295 checkin1[48432:70b] POST https://api.usergrid.com/snoopdave/checkin1/token?: 215ms
+2014-10-11 12:13:08.295 checkin1[48432:70b] process request POST https://api.usergrid.com/snoopdave/checkin1/token: 237ms
+2014-10-11 12:14:07.273 checkin1[48432:70b] POST https://api.usergrid.com/snoopdave/checkin1/users/snoopdave/activities?access_token=YWMtfS9EslFhEeSDXQVXEKawFAAAAUkkCKrcfQuDxCqK3pW3QJC8AEwHI5YqgiI: 196ms
+2014-10-11 12:14:07.274 checkin1[48432:70b] process request POST https://api.usergrid.com/snoopdave/checkin1/users/snoopdave/activities: 199ms
+2014-10-11 12:14:07.402 checkin1[48432:70b] GET https://api.usergrid.com/snoopdave/checkin1/users/snoopdave/feed?access_token=YWMtfS9EslFhEeSDXQVXEKawFAAAAUkkCKrcfQuDxCqK3pW3QJC8AEwHI5YqgiI: 125ms
+2014-10-11 12:14:07.403 checkin1[48432:70b] process request GET https://api.usergrid.com/snoopdave/checkin1/users/snoopdave/feed: 130ms
+2014-10-11 12:14:09.793 checkin1[48432:70b] GET https://api.usergrid.com/snoopdave/checkin1/activity/a0548a1a-5161-11e4-b4ae-bb706f435678?access_token=YWMtfS9EslFhEeSDXQVXEKawFAAAAUkkCKrcfQuDxCqK3pW3QJC8AEwHI5YqgiI: 135ms
+2014-10-11 12:14:09.793 checkin1[48432:70b] process request GET https://api.usergrid.com/snoopdave/checkin1/activity/a0548a1a-5161-11e4-b4ae-bb706f435678: 151ms

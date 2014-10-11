@@ -21,11 +21,11 @@
 /checkinv3/nbproject/
 /checkinv2/nbproject/
 /checkinv1/nbproject/
-/checkinv4/platforms/android/
-/checkinv4/platforms/ios/
 /checkinv4/app/assets/
 /checkinv4/app/classes.dex
 /checkinv4/app/res/
 /checkinv4/app/META-INF/
 /checkinv4/app/AndroidManifest.xml
 /checkinv4/app/resources.arsc
+/checkinv4/platforms/ios/build/
+/checkinv4/platforms/android/CordovaLib/ant-build/
