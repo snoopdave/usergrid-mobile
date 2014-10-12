@@ -18,9 +18,51 @@
  */
 
 body {
-    font-size:15px;
+    -webkit-touch-callout: none;     /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;  /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;       /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-size:14px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+    color: purple;
 }
 
-.ui-btn-inline {
-    margin: 0px;
+div.ui-navbar a.ui-btn,
+div.ui-header h2.ui-title, 
+div.ui-footer h2.ui-title {
+    font-size: 1.2em;
+}
+
+div.ui-header a.ui-btn,
+div.ui-footer a.ui-btn {
+    margin: 0;
+    font-size: 0.8em;
+}
+
+a.ui-btn {
+    font-size: 0.7em;
+}
+
+#user-list a.ui-btn,
+#user-checkin-list a.ui-btn,
+#checkin-list a.ui-btn {
+    font-size: 1em;
+}
+
+label {
+    font-size: 1em;
 }

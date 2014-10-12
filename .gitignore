@@ -1,13 +1,13 @@
+/checkinv4/plugins/android.json
+/checkinv4/plugins/ios.json
 /checkinv4/plugins/org.apache.cordova.camera/
 /checkinv4/plugins/org.apache.cordova.console/
 /checkinv4/plugins/org.apache.cordova.file/
 /checkinv4/plugins/org.apache.cordova.battery-status/
 /checkinv4/plugins/org.apache.cordova.geolocation/
 /checkinv4/plugins/org.apache.cordova.globalization/
-/checkinv4/plugins/android.json
 /checkinv4/plugins/org.apache.cordova.media-capture/
 /checkinv4/plugins/org.apache.cordova.file-transfer/
-/checkinv4/plugins/ios.json
 /checkinv4/plugins/org.apache.cordova.network-information/
 /checkinv4/plugins/org.apache.cordova.contacts/
 /checkinv4/plugins/org.apache.cordova.dialogs/
@@ -29,3 +29,4 @@
 /checkinv4/app/resources.arsc
 /checkinv4/platforms/ios/build/
 /checkinv4/platforms/android/CordovaLib/ant-build/
+/checkinv4/platforms/ios/CordovaLib/build/

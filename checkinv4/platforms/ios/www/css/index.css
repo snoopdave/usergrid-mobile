@@ -28,9 +28,9 @@ http://solutions.michaelbrooks.ca/2011/07/05/android-soft-keyboard-resizes-web-v
 */
 
 body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    -webkit-touch-callout: none;     /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;  /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;       /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -50,26 +50,29 @@ body {
     width:100%;
 }
 
-h2 {
-    font-size: 1.2em;    
+div.ui-navbar a.ui-btn,
+div.ui-header h2.ui-title, 
+div.ui-footer h2.ui-title {
+    font-size: 1.2em;
 }
 
-label {
-    font-size: 1em;    
+div.ui-header a.ui-btn,
+div.ui-footer a.ui-btn {
+    margin: 0.2em;
+    font-size: 0.8em;
 }
 
-element.style {
-    height: 1em;
-}
-
-.ui-btn {
+a.ui-btn {
     font-size: 1em;
 }
 
-.ui-header h2.ui-title {
-    font-size: 1.3em;
+#user-list a.ui-btn,
+#user-checkin-list a.ui-btn,
+#checkin-list a.ui-btn {
+    font-size: 1em;
 }
 
-.ui-footer h2.ui-title {
-    font-size: 1.4em;
+label {
+    font-size: 0.7em;
 }
+

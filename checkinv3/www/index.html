@@ -49,23 +49,27 @@
     <div data-role="page" id="login-page" data-theme="a">
 
       <div data-role="header" data-theme="a">
-        <h2>Login to Checkinv3</h2>
+        <h2>Login to Checkinv4</h2>
       </div>
 
       <div data-role="content">
         <h2>Please Login</h2>
 
-        <label for="username">Username</label>
-        <input id="login-username" type="text" name="username">
+        <form name="loginForm">
 
-        <label for="password">Password</label>
-        <input id="login-password" type="password" name="password">
+            <label for="username">Username</label>
+            <input id="login-username" type="text" name="username" value="snoopdave">
 
-        <a id="btn-compose" 
-           data-role="button" 
-           data-inline="true" 
-           onclick="login()"
-           >Login</a>
+            <label for="password">Password</label>
+            <input id="login-password" type="password" name="password" value="dave">
+
+            <a id="btn-login" 
+                data-role="button" 
+                data-inline="true" 
+                onclick="login()"
+                >Login</a>
+
+        </form>
 
         <p>Or <a href="#signup-page">sign-up</a> for a new account</p>
       </div>
@@ -117,6 +121,7 @@
 
     </div>
 
+    <!-- ******************************************************************* -->
 
     <!-- ADD CHECKIN -->
 
@@ -143,7 +148,13 @@
            data-inline="true" 
            >Cancel</a>
 
-        <button id="create-button" data-inline="true" onclick="checkin()">Complete Check-in</button>
+        <a href="#" 
+           data-role="button" 
+           data-rel="back"
+           data-theme="c" 
+           data-inline="true" 
+           onclick="checkin()"
+           >Complete Check-in</a>
 
       </div>
 
@@ -171,7 +182,7 @@
         <a href="#checkin-list-page" 
            data-role="button" 
            data-rel="back"
-           data-theme="c" 
+           data-theme="a" 
            data-inline="true" 
            >Back</a>
 
@@ -197,16 +208,25 @@
       </div>
 
       <div data-role="header" data-theme="a">
-        <h2>Checkinv3: Check-ins</h2>
+        <h2>Check-ins</h2>
         <a id="btn-compose" 
            href="#add-page" 
            data-role="button" 
-           data-icon="plus" 
+           data-iconpos="right" 
+           data-inline="true" 
+           data-mini="true"
+           class="ui-btn-left"
+           >Check-in</a>
+
+        <a id="btn-compose" 
+           onclick="logout()"
+           data-role="button" 
            data-iconpos="right" 
            data-inline="true" 
            data-mini="true"
            class="ui-btn-right"
-           >Check-in</a>
+           >Logout</a>
+
       </div>
 
       <div data-role="content">
@@ -216,15 +236,6 @@
 
       <div data-role="footer" data-theme="a">
         <h2>Logged in as: <span id="checkin-list-username"></span></h2>
-        <a id="btn-compose" 
-           onclick="logout()"
-           data-role="button" 
-           data-icon="plus" 
-           data-iconpos="right" 
-           data-inline="true" 
-           data-mini="true"
-           class="ui-btn-right"
-           >Logout</a>
       </div>
 
     </div>
@@ -245,13 +256,13 @@
 
       <div data-role="navbar">
         <ul>
-          <li><a href="#checkin-list-page">Check-in</a></li>
+          <li><a href="#checkin-list-page">Check-ins</a></li>
           <li><a href="#" class="ui-btn-active">Users</a></li>
         </ul>
       </div>
 
       <div data-role="header" data-theme="a">
-        <h2>Checkinv3: Users</h2>
+        <h2>Users</h2>
       </div>
 
       <div data-role="content">
@@ -259,15 +270,7 @@
       </div>
 
       <div data-role="footer" data-theme="a">
-        <h4>Logged in as: <span id="checkin-list-username"></span></h4>
-        <a id="btn-compose" 
-           onclick="logout()"
-           data-role="button" 
-           data-icon="plus" 
-           data-iconpos="right" 
-           data-inline="true" 
-           class="ui-btn-right"
-           >Logout</a>
+        <h2>Powered by Apache Usergrid</h2>
       </div>
 
     </div>

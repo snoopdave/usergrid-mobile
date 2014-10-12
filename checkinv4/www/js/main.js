@@ -33,6 +33,14 @@ var client = new Usergrid.Client({
 });
 
 
+// *****************************************************************************
+// 
+//                             NEW IN CHECKINV4
+// 
+// *****************************************************************************
+
+// "when both frameworks ready" logic
+
 var deviceReadyDeferred = $.Deferred();
 var jqmReadyDeferred = $.Deferred();
 
@@ -65,20 +73,24 @@ function doWhenBothFrameworksLoaded() {
                 alert(err);
                 localStorage.removeItem("access_token");
                 localStorage.removeItem("expires_in");
-                $(":mobile-pagecontainer").pagecontainer("change", "#login-page");
+                $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+                    transition: 'flow',
+                    reload: true
+                 });
 
             } else {
                 user = entity;
-                $("#checkin-list-username").append( user.get("username") );
-                loadCheckinList("#checkin-list");
-                loadUserListPage();
+                buildCheckinList("#checkin-list");
+                buildUserListPage();
             }
         });
 
     } else {
-        $(":mobile-pagecontainer").pagecontainer("change", "#login-page");
-        $("#checkin-list-username").append( user.get("username") );
-        loadCheckinList("#checkin-list");
+        console.log("mobileinit: directing to login-page");
+        $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+            transition: 'flow',
+            reload: true
+        });
     }
 }
 
@@ -86,11 +98,10 @@ function doWhenBothFrameworksLoaded() {
 
 function login() {
 
+  console.log("Entering mobileinit");
+
   var username = $("#login-username").val();
   var password = $("#login-password").val();
-
-  localStorage.removeItem("access_token");
-  localStorage.removeItem("expires_in");
 
   client.login(username, password, function(err, response, entity) {
     if (err) {
@@ -98,14 +109,23 @@ function login() {
 
     } else {
 
+      user = entity;
+
       localStorage.setItem("username", username);
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("expires_in", response.expires_in);
       localStorage.setItem("login_date", new Date());
 
-      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page");
-      user = entity;
+      document.loginForm.username.value = "";
+      document.loginForm.password.value = "";
 
+      buildCheckinList("#checkin-list");
+      buildUserListPage();
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
+        transition: 'flow',
+        reload: true
+      });
     }
   });
 
@@ -113,18 +133,28 @@ function login() {
 
 
 function logout() {
+
+    client.logout();
+
     user = null;
+
     localStorage.removeItem("username");
     localStorage.removeItem("access_token");
     localStorage.removeItem("expires_in");
     localStorage.removeItem("login_date");
-    $(":mobile-pagecontainer").pagecontainer("change", "#login-page");
+
+    $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+        transition: 'flow',
+        reload: true
+    });
 }
 
 
 // *****************************************************************************
 
 function signup() {
+
+    logout();
 
     var name = document.signupForm.name.value;
     var username = document.signupForm.username.value;
@@ -180,12 +210,14 @@ function checkin() {
       alert("Error on check-in");
 
     } else {
-      history.back();
-      $("#create-content-field").val("");
-      $("#create-location-field").val("");
-      loadCheckinList("#checkin-list");
+      buildCheckinList("#checkin-list");
       document.checkinForm.content.value = "";
       document.checkinForm.location.value = "";
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
+        transition: 'flow',
+        reload: true
+      });
     }
   });
 
@@ -194,7 +226,7 @@ function checkin() {
 
 // *****************************************************************************
 
-function loadViewCheckinPage(uuid) {
+function showCheckinPage(uuid) {
 
   var id = {'uuid': uuid, 'type': 'activity'}; 
 
@@ -204,7 +236,11 @@ function loadViewCheckinPage(uuid) {
       $("#view-checkin-content").html( activity.get("content"));
       $("#view-checkin-location").html( activity.get("location"));
       $("#view-checkin-username").html( activity.get("actor").username );
-      $(":mobile-pagecontainer").pagecontainer("change", "#view-checkin-page");
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#view-checkin-page", {
+        transition: 'flow',
+        reload: true
+      });
 
     } else {
       alert("Cannot get entity " + name);
@@ -216,8 +252,10 @@ function loadViewCheckinPage(uuid) {
 
 // *****************************************************************************
 
-function loadCheckinList(listDomId, username) {
+function buildCheckinList(listDomId, username) {
 
+  $("#checkin-list-username").html( user.get("username") );
+  
   $(listDomId).empty();
 
   if (username) {
@@ -266,7 +304,12 @@ function loadCheckinList(listDomId, username) {
           appendCheckin(listDomId, c);
         }
 
-        $(listDomId).listview("refresh");
+        if ( $(listDomId).hasClass('ui-listview')) {
+           $(listDomId).listview('refresh');
+        } else {
+           $(listDomId).trigger('create');
+        }
+
       }
     });
 
@@ -276,7 +319,7 @@ function loadCheckinList(listDomId, username) {
 function appendCheckin(listDomId, c) {
     $(listDomId).append(
       "<li data-theme='c'>" +
-        "<a onclick='loadViewCheckinPage(\"" + c.get("uuid") + "\")'>" +
+        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
         "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
         "<p>" + c.get("location") + "</p>" +
         "</a>" +
@@ -286,7 +329,7 @@ function appendCheckin(listDomId, c) {
 
 // *****************************************************************************
 
-function loadUserListPage() {
+function buildUserListPage() {
 
   $("#user-list").empty();
 
@@ -303,14 +346,19 @@ function loadUserListPage() {
         var u = users.getNextEntity();
         $("#user-list").append(
             "<li data-theme='c'>" +
-                "<a onclick='loadViewUserPage(\"" + u.get("uuid") + "\")'>" +
+                "<a onclick='showUserPage(\"" + u.get("uuid") + "\")'>" +
                 "<h2>" + u.get("name") + "</h2>" +
                 "<p>" + u.get("username") + "</p>" +
                 "</a>" +
             "</li>");
       } 
 
-      $('#user-list').listview("refresh");
+      if ( $('##user-list').hasClass('ui-listview')) {
+         $('##user-list').listview('refresh');
+      } else {
+         $('##user-list').trigger('create');
+    }
+
     }
   });
 
@@ -319,7 +367,7 @@ function loadUserListPage() {
 
 // *****************************************************************************
 
-function loadViewUserPage(uuid) {
+function showUserPage(uuid) {
 
   var id = {'uuid': uuid, 'type': 'user'}
 
@@ -327,13 +375,16 @@ function loadViewUserPage(uuid) {
 
     if (!err && viewedUser ) {
 
-      $(":mobile-pagecontainer").pagecontainer("change", "#view-user-page");
+      $(":mobile-pagecontainer").pagecontainer("change", "#view-user-page", {
+        transition: 'flow',
+        reload: true
+      });
 
       $("#view-user-name").html( viewedUser.get("name"));
       $("#view-user-username").html( viewedUser.get("username"));
 
       $("#user-checkin-list").empty();
-      loadCheckinList("#user-checkin-list", viewedUser.get("username"));
+      buildCheckinList("#user-checkin-list", viewedUser.get("username"));
 
       if ( user.get("uuid") == viewedUser.get("uuid")) {
           $("#follow-button").hide();
@@ -345,26 +396,25 @@ function loadViewUserPage(uuid) {
       alert("Cannot get user entity " + uuid);
     }
   });
-
-// *****************************************************************************
-
-    function followUser() {
-
-        var target = $("#view-user-username").html();
-
-        var options = {
-            method: 'POST',
-            endpoint: 'users/' + user.get("username") + '/following/users/' + target
-        };
-
-        client.request(options, function (err, data) {
-            if (err) {
-                alert("Unable to follow user " + target);
-            } else {
-                alert("Followed user " + target);
-            }
-        });
-    }
 }
 
 
+// *****************************************************************************
+
+function followUser() {
+
+    var target = $("#view-user-username").html();
+
+    var options = {
+        method: 'POST',
+        endpoint: 'users/' + user.get("username") + '/following/users/' + target
+    };
+
+    client.request(options, function (err, data) {
+        if (err) {
+            alert("Unable to follow user " + target);
+        } else {
+            alert("Followed user " + target);
+        }
+    });
+}
