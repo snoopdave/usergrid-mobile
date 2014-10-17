@@ -17,6 +17,16 @@
  * under the License.
  */
 
+/*
+Naughty Android will zoom the app when the keyboard appears. One way to prevent 
+this is to add to the <activity> element in AndroidManifest.xml this attribute:
+
+    android:windowSoftInputMode="adjustPan"
+
+For more information see Michael Brooks' blog:
+http://solutions.michaelbrooks.ca/2011/07/05/android-soft-keyboard-resizes-web-view/
+*/
+
 body {
     -webkit-touch-callout: none;     /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;  /* prevent webkit from resizing text to fit */
@@ -38,7 +48,6 @@ body {
     margin:0px;
     padding:0px;
     width:100%;
-    color: purple;
 }
 
 div.ui-navbar a.ui-btn,
@@ -49,12 +58,12 @@ div.ui-footer h2.ui-title {
 
 div.ui-header a.ui-btn,
 div.ui-footer a.ui-btn {
-    margin: 0;
+    margin: 0.2em;
     font-size: 0.8em;
 }
 
 a.ui-btn {
-    font-size: 0.7em;
+    font-size: 1em;
 }
 
 #user-list a.ui-btn,
@@ -64,5 +73,6 @@ a.ui-btn {
 }
 
 label {
-    font-size: 1em;
+    font-size: 1.0em;
 }
+

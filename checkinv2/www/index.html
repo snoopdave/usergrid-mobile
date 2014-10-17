@@ -25,7 +25,7 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and 
     height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -34,7 +34,7 @@
 
     <script src="js/jquery-1.8.2.min.js"></script> 
     <script src="js/usergrid.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/jquery.mobile-1.4.3.min.js"></script>
 
   </head>
@@ -54,23 +54,27 @@
       <div data-role="content">
         <h2>Please Login</h2>
 
-        <label for="username">Username</label>
-        <input id="login-username" type="text" name="username">
+        <form name="loginForm">
 
-        <label for="password">Password</label>
-        <input id="login-password" type="password" name="password">
+            <label for="username">Username</label>
+            <input id="login-username" type="text" name="username">
 
-        <a id="btn-compose" 
-           data-role="button" 
-           data-inline="true" 
-           onclick="login()"
-           >Login</a>
+            <label for="password">Password</label>
+            <input id="login-password" type="password" name="password">
+
+            <a id="btn-login" 
+                data-role="button" 
+                data-inline="true" 
+                onclick="login()"
+                >Login</a>
+
+        </form>
 
         <p>Or <a href="#signup-page">sign-up</a> for a new account</p>
       </div>
 
       <div data-role="footer" data-theme="a">
-        <h4>Powered by Apache Usergrid</h4>
+        <h2>Powered by Apache Usergrid</h2>
       </div>
 
     </div>
@@ -111,7 +115,7 @@
       </div>
 
       <div data-role="footer" data-theme="a">
-        <h4>Powered by Apache Usergrid</h4>
+        <h2>Powered by Apache Usergrid</h2>
       </div>
 
     </div>

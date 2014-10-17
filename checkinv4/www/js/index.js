@@ -70,7 +70,7 @@ function doWhenBothFrameworksLoaded() {
         var id = {"username": username, type: "user"};
         client.getEntity(id, function(err, response, entity) {
             if (err) {
-                alert(err);
+                logout();
                 localStorage.removeItem("access_token");
                 localStorage.removeItem("expires_in");
                 $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
@@ -97,8 +97,6 @@ function doWhenBothFrameworksLoaded() {
 // *****************************************************************************
 
 function login() {
-
-  console.log("Entering mobileinit");
 
   var username = $("#login-username").val();
   var password = $("#login-password").val();
@@ -164,7 +162,8 @@ function signup() {
 
     if (password === passwordConfirm) {
 
-        client.signup(username, password, email, name, function(err, response, entity) {
+        client.signup(username, password, email, name, 
+          function(err, response, entity) {
             if (err) {
                 alert(err);
 
@@ -204,7 +203,8 @@ function checkin() {
     }
   };
 
-  client.createUserActivity(user.get("username"), data, function( err, response, activity ) {
+  client.createUserActivity(user.get("username"), data, 
+    function( err, response, activity ) {
 
     if (err) {
       alert("Error on check-in");

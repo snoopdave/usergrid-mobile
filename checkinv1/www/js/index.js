@@ -23,12 +23,11 @@ var checkins;
 
 var client = new Usergrid.Client({
   appName: 'checkin1',
+  orgName: 'test-organization',
+  URI: 'http://10.1.1.161:8080',
 
-  //orgName: 'test-organization',
-  //URI: 'http://10.1.1.161:8080',
-
-  orgName: 'snoopdave',
-  URI: 'https://api.usergrid.com',
+  //orgName: 'snoopdave',
+  //URI: 'https://api.usergrid.com',
 });
 
 $(document).on("mobileinit", function() {
@@ -45,12 +44,16 @@ $(document).on("mobileinit", function() {
         var id = {"username": username, type: "user"};
         client.getEntity(id, function(err, response, entity) {
             if (err) {
-                alert(err);
+                logout();
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("expires_in");
+                $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+                    transition: 'flow',
+                    reload: true
+                 });
+
             } else {
                 user = entity;
-                $("#checkin-list-username").append( user.get("username") );
-                loadCheckinList("#checkin-list");
-                loadUserListPage();
             }
         });
 
@@ -60,8 +63,6 @@ $(document).on("mobileinit", function() {
             transition: 'flow',
             reload: true
         });
-        //$("#checkin-list-username").append( user.get("username") );
-        //loadCheckinList("#checkin-list");
     }
 
 });
@@ -69,8 +70,6 @@ $(document).on("mobileinit", function() {
 // *****************************************************************************
 
 function login() {
-
-  console.log("Entering mobileinit");
 
   var username = $("#login-username").val();
   var password = $("#login-password").val();
@@ -81,14 +80,20 @@ function login() {
 
     } else {
 
+      user = entity;
+
       localStorage.setItem("username", username);
       localStorage.setItem("access_token", response.access_token);
       localStorage.setItem("expires_in", response.expires_in);
       localStorage.setItem("login_date", new Date());
 
-      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page");
-      user = entity;
+      document.loginForm.username.value = "";
+      document.loginForm.password.value = "";
 
+      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
+        transition: 'flow',
+        reload: true
+      });
     }
   });
 
@@ -96,18 +101,28 @@ function login() {
 
 
 function logout() {
+
+    client.logout();
+
     user = null;
+
     localStorage.removeItem("username");
     localStorage.removeItem("access_token");
     localStorage.removeItem("expires_in");
     localStorage.removeItem("login_date");
-    $(":mobile-pagecontainer").pagecontainer("change", "#login-page");
+
+    $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+        transition: 'flow',
+        reload: true
+    });
 }
 
 
 // *****************************************************************************
 
 function signup() {
+
+    logout();
 
     var name = document.signupForm.name.value;
     var username = document.signupForm.username.value;
@@ -117,7 +132,8 @@ function signup() {
 
     if (password === passwordConfirm) {
 
-        client.signup(username, password, email, name, function(err, response, entity) {
+        client.signup(username, password, email, name, 
+          function(err, response, entity) {
             if (err) {
                 alert(err);
 

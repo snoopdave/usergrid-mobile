@@ -24,12 +24,14 @@ var checkins;
 var client = new Usergrid.Client({
   appName: 'checkin1',
 
-  //orgName: 'test-organization',
-  //URI: 'http://10.1.1.161:8080',
+  orgName: 'test-organization',
+  URI: 'http://10.1.1.161:8080',
 
-  orgName: 'snoopdave',
-  URI: 'https://api.usergrid.com',
+  // orgName: 'snoopdave',
+  // URI: 'https://api.usergrid.com',
 });
+
+// *****************************************************************************
 
 $(document).on("mobileinit", function() {
  
@@ -45,11 +47,17 @@ $(document).on("mobileinit", function() {
         var id = {"username": username, type: "user"};
         client.getEntity(id, function(err, response, entity) {
             if (err) {
-                alert(err);
+                logout();
+                localStorage.removeItem("access_token");
+                localStorage.removeItem("expires_in");
+                $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
+                    transition: 'flow',
+                    reload: true
+                });
+                buildCheckinList("#checkin-list");
+
             } else {
                 user = entity;
-                buildCheckinList("#checkin-list");
-                buildUserListPage();
             }
         });
 
@@ -67,12 +75,11 @@ $(document).on("mobileinit", function() {
 
 function login() {
 
-  console.log("Entering mobileinit");
-
   var username = $("#login-username").val();
   var password = $("#login-password").val();
 
   client.login(username, password, function(err, response, entity) {
+
     if (err) {
       alert(err);
 
@@ -89,7 +96,6 @@ function login() {
       document.loginForm.password.value = "";
 
       buildCheckinList("#checkin-list");
-      buildUserListPage();
 
       $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
         transition: 'flow',
@@ -133,7 +139,8 @@ function signup() {
 
     if (password === passwordConfirm) {
 
-        client.signup(username, password, email, name, function(err, response, entity) {
+        client.signup(username, password, email, name, 
+          function(err, response, entity) {
             if (err) {
                 alert(err);
 
@@ -155,7 +162,10 @@ function signup() {
     return false;
 }
 
-
+// *****************************************************************************
+// 
+// NEW IN CHECKINV2
+// 
 // *****************************************************************************
 
 function checkin() {
@@ -173,7 +183,8 @@ function checkin() {
     }
   };
 
-  client.createUserActivity(user.get("username"), data, function( err, response, activity ) {
+  client.createUserActivity(user.get("username"), data, 
+    function( err, response, activity ) {
 
     if (err) {
       alert("Error on check-in");
@@ -224,7 +235,7 @@ function showCheckinPage(uuid) {
 function buildCheckinList(listDomId, username) {
 
   $("#checkin-list-username").html( user.get("username") );
-
+  
   $(listDomId).empty();
 
   if (username) {
@@ -260,7 +271,8 @@ function buildCheckinList(listDomId, username) {
 
     // get feed from all users that current user follows
 
-    client.getFeedForUser(user.get("username"), function(err, response, userCheckins) {
+    client.getFeedForUser(user.get("username"), 
+     function(err, response, userCheckins) {
 
       if (err) {
         alert("read failed");
@@ -293,103 +305,4 @@ function appendCheckin(listDomId, c) {
         "<p>" + c.get("location") + "</p>" +
         "</a>" +
       "</li>");
-}
-
-
-// *****************************************************************************
-// 
-//                             NEW IN CHECKINV3
-// 
-// *****************************************************************************
-
-// user list and ability to follow users
-
-function buildUserListPage() {
-
-  $("#user-list").empty();
-
-  users = new Usergrid.Collection({"client": client, "type": "user" });
-
-  users.fetch(function(err, response, self) {
-
-    if (err) {
-      alert("read failed");
-
-    } else {
-
-      while ( users.hasNextEntity() ) {
-        var u = users.getNextEntity();
-        $("#user-list").append(
-            "<li data-theme='c'>" +
-                "<a onclick='showUserPage(\"" + u.get("uuid") + "\")'>" +
-                "<h2>" + u.get("name") + "</h2>" +
-                "<p>" + u.get("username") + "</p>" +
-                "</a>" +
-            "</li>");
-      } 
-
-      if ( $('#user-list').hasClass('ui-listview')) {
-         $('#user-list').listview('refresh');
-      } else {
-         $('#user-list').trigger('create');
-      }
-
-    }
-  });
-
-}
-
-
-// *****************************************************************************
-
-function showUserPage(uuid) {
-
-  var id = {'uuid': uuid, 'type': 'user'}
-
-  client.getEntity(id, function(err, result, viewedUser ) {
-
-    if (!err && viewedUser ) {
-
-      $(":mobile-pagecontainer").pagecontainer("change", "#view-user-page", {
-        transition: 'flow',
-        reload: true
-      });
-
-      $("#view-user-name").html( viewedUser.get("name"));
-      $("#view-user-username").html( viewedUser.get("username"));
-
-      $("#user-checkin-list").empty();
-      buildCheckinList("#user-checkin-list", viewedUser.get("username"));
-
-      if ( user.get("uuid") == viewedUser.get("uuid")) {
-          $("#follow-button").hide();
-      } else {
-          $("#follow-button").show();
-      }
-
-    } else {
-      alert("Cannot get user entity " + uuid);
-    }
-  });
-}
-
-
-// *****************************************************************************
-
-function followUser() {
-
-    var target = $("#view-user-username").html();
-
-    var options = {
-        method: 'POST',
-        endpoint: 'users/' + user.get("username") + '/following/users/' + target
-    };
-
-    client.request(options, function (err, data) {
-        if (err) {
-            alert("Unable to follow user " + target);
-        } else {
-            alert("Followed user " + target);
-        }
-    });
 }
