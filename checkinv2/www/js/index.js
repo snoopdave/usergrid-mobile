@@ -168,6 +168,66 @@ function signup() {
 // 
 // *****************************************************************************
 
+
+
+
+// *****************************************************************************
+
+function buildCheckinList(listDomId, username) {
+
+  $("#checkin-list-username").html( user.get("username") );
+  
+  $(listDomId).empty();
+
+  if (username) {
+
+    // get feed for specific user 
+
+    // coming soon...
+
+  } else {
+
+    // get feed from all users that current user follows
+
+    client.getFeedForUser(user.get("username"), 
+     function(err, response, userCheckins) {
+
+      if (err) {
+        alert("read failed");
+
+      } else {
+
+        for ( i = 0; i < userCheckins.length; i++ ) {
+          var e = userCheckins[i];
+          var c = new Usergrid.Entity({"client": client, "data": e }); 
+          appendCheckin(listDomId, c);
+        }
+
+        if ( $(listDomId).hasClass('ui-listview')) {
+           $(listDomId).listview('refresh');
+        } else {
+           $(listDomId).trigger('create');
+        }
+
+      }
+    });
+
+  }
+}
+
+function appendCheckin(listDomId, c) {
+    $(listDomId).append(
+      "<li data-theme='c'>" +
+        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
+        "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
+        "<p>" + c.get("location") + "</p>" +
+        "</a>" +
+      "</li>");
+}
+
+
+// *****************************************************************************
+
 function checkin() {
 
   var content =  document.checkinForm.content.value;
@@ -227,82 +287,4 @@ function showCheckinPage(uuid) {
     }
   });
 
-}
-
-
-// *****************************************************************************
-
-function buildCheckinList(listDomId, username) {
-
-  $("#checkin-list-username").html( user.get("username") );
-  
-  $(listDomId).empty();
-
-  if (username) {
-
-    // get feed for specific user 
-
-    var options = {
-        client: client, 
-        type: "activities",
-        qs: { ql: "select * where actor.username='" + username + "'" }
-    };
-    
-    var userCheckins = new Usergrid.Collection(options);
-    
-    userCheckins.fetch(function(err, response, userCheckins) {
-
-      if (err) {
-        alert("read failed");
-
-      } else {
-
-        while (userCheckins.hasNextEntity()) {
-          var c = userCheckins.getNextEntity();
-          appendCheckin(listDomId, c);
-        }
-
-        $(listDomId).listview("refresh");
-      }
-    });
-
-
-  } else {
-
-    // get feed from all users that current user follows
-
-    client.getFeedForUser(user.get("username"), 
-     function(err, response, userCheckins) {
-
-      if (err) {
-        alert("read failed");
-
-      } else {
-
-        for ( i = 0; i < userCheckins.length; i++ ) {
-          var e = userCheckins[i];
-          var c = new Usergrid.Entity({"client": client, "data": e }); 
-          appendCheckin(listDomId, c);
-        }
-
-        if ( $(listDomId).hasClass('ui-listview')) {
-           $(listDomId).listview('refresh');
-        } else {
-           $(listDomId).trigger('create');
-        }
-
-      }
-    });
-
-  }
-}
-
-function appendCheckin(listDomId, c) {
-    $(listDomId).append(
-      "<li data-theme='c'>" +
-        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
-        "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
-        "<p>" + c.get("location") + "</p>" +
-        "</a>" +
-      "</li>");
 }

@@ -129,74 +129,6 @@
     // ************************************************************************
     -->
 
-
-    <!-- ADD CHECKIN -->
-
-    <div data-role="page" id="add-page" data-control-title="Add Checkin">
-
-      <div data-theme="a" data-role="header">
-        <h1>Check-in</h1>
-      </div>
-
-      <div data-role="content">
-
-        <form name="checkinForm">
-          <label for="content">What's up?</label>
-          <textarea id="content"></textarea>
-
-          <label for="location">Location</label>
-          <textarea id="location"></textarea>
-        </form>    
-
-        <a href="#list-page" 
-           data-role="button" 
-           data-rel="back"
-           data-theme="c" 
-           data-inline="true" 
-           >Cancel</a>
-
-        <button id="create-button" data-inline="true" onclick="checkin()">Complete Check-in</button>
-
-      </div>
-
-      <div data-role="footer" data-theme="a">
-        <h4>Powered by Apache Usergrid</h4>
-      </div>
-
-    </div> 
-
-    <!-- ******************************************************************* -->
-
-    <!-- VIEW CHECKIN -->
-
-    <div data-role="page" id="view-checkin-page" data-control-title="Show Checkin">
-
-      <div data-theme="a" data-role="header">
-        <h1>View Check-in</h1>
-      </div>
-
-      <div data-role="content">
-
-        <p> <b><span id="view-checkin-username"></span></b>: <span id="view-checkin-content"> </p>
-        <p> <span id="view-checkin-location"> </p>
-
-        <a href="#checkin-list-page" 
-           data-role="button" 
-           data-rel="back"
-           data-theme="c" 
-           data-inline="true" 
-           >Back</a>
-
-      </div>
-
-      <div data-role="footer" data-theme="a">
-        <h4>Powered by Apache Usergrid</h4>
-      </div>
-
-    </div>
-
-    <!-- ******************************************************************* -->
-
     <!-- CHECKIN LIST -->
 
     <div data-role="page" id="checkin-list-page" data-theme="a">
@@ -231,6 +163,78 @@
       </div>
 
     </div>
+
+
+    <!-- ADD CHECKIN -->
+
+    <div data-role="page" id="add-page" data-control-title="Add Checkin">
+
+      <div data-theme="a" data-role="header">
+        <h1>Check-in</h1>
+      </div>
+
+      <div data-role="content">
+
+        <form name="checkinForm">
+          <label for="content">What's up?</label>
+          <textarea id="content"></textarea>
+
+          <label for="location">Location</label>
+          <textarea id="location"></textarea>
+        </form>    
+
+        <a href="#list-page" 
+           data-role="button" 
+           data-rel="back"
+           data-theme="c" 
+           data-inline="true" 
+           >Cancel</a>
+
+        <button id="create-button" data-inline="true" 
+                onclick="checkin()">Complete Check-in</button>
+
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
+    </div> 
+
+    <!-- ******************************************************************* -->
+
+    <!-- VIEW CHECKIN -->
+
+    <div data-role="page" id="view-checkin-page" data-control-title="Show Checkin">
+
+      <div data-theme="a" data-role="header">
+        <h1>View Check-in</h1>
+      </div>
+
+      <div data-role="content">
+
+        <p> <b><span id="view-checkin-username"></span></b>: 
+            <span id="view-checkin-content"> </p>
+            
+        <p> <span id="view-checkin-location"> </p>
+
+        <a href="#checkin-list-page" 
+           data-role="button" 
+           data-rel="back"
+           data-theme="c" 
+           data-inline="true" 
+           >Back</a>
+
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
+    </div>
+
+    <!-- ******************************************************************* -->
+
 
   </body>
 </html>

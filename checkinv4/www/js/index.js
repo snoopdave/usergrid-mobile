@@ -98,11 +98,14 @@ function doWhenBothFrameworksLoaded() {
 
 function login() {
 
+  client.logout();
+
   var username = $("#login-username").val();
   var password = $("#login-password").val();
 
   client.login(username, password, function(err, response, entity) {
     if (err) {
+      logout();
       alert(err);
 
     } else {
@@ -298,7 +301,7 @@ function buildCheckinList(listDomId, username) {
 
       } else {
 
-        for ( i = 0; i < userCheckins.length; i++ ) {
+        for ( var i = 0; i < userCheckins.length; i++ ) {
           var e = userCheckins[i];
           var c = new Usergrid.Entity({"client": client, "data": e }); 
           appendCheckin(listDomId, c);
