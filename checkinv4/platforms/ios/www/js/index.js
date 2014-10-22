@@ -356,11 +356,11 @@ function buildUserListPage() {
             "</li>");
       } 
 
-      if ( $('##user-list').hasClass('ui-listview')) {
-         $('##user-list').listview('refresh');
+      if ( $('#user-list').hasClass('ui-listview')) {
+         $('#user-list').listview('refresh');
       } else {
-         $('##user-list').trigger('create');
-    }
+         $('#user-list').trigger('create');
+      }
 
     }
   });
