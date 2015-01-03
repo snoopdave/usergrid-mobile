@@ -1,9 +1,8 @@
 usergrid-mobile
 ===============
 
-Example code for my talk Building Mobile Apps with Apache Usergrid. 
-You can view a screencast of the talk on YouTube: 
-[All Things Open 2014: Building Mobile Apps with Apache UserGrid](https://www.youtube.com/watch?v=DjFG-QbxxLw).
+Example code for my talk about building mobile apps with Apache Usergrid, jQuery Mobile and Apache Cordova. You can view a screencast of the talk on YouTube: 
+__[All Things Open 2014: Building Mobile Apps with Apache UserGrid](https://www.youtube.com/watch?v=DjFG-QbxxLw).__
 
 This example app is was initially created by the Apache Cordova command line times. 
 There are four versions of the app: v1, v2, v3 and v4. Each one of these versions 
