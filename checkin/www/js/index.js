@@ -31,8 +31,6 @@ var client = new Usergrid.Client({
   // URI: 'https://api.usergrid.com',
 });
 
-// *****************************************************************************
-
 $(document).on("mobileinit", function() {
  
     console.log("Entering mobileinit");
@@ -54,10 +52,11 @@ $(document).on("mobileinit", function() {
                     transition: 'flow',
                     reload: true
                 });
-                buildCheckinList("#checkin-list");
 
             } else {
                 user = entity;
+                buildCheckinList("#checkin-list");
+                buildUserListPage();
             }
         });
 
@@ -79,7 +78,6 @@ function login() {
   var password = $("#login-password").val();
 
   client.login(username, password, function(err, response, entity) {
-
     if (err) {
       alert(err);
 
@@ -95,9 +93,8 @@ function login() {
       document.loginForm.username.value = "";
       document.loginForm.password.value = "";
 
-      // new in checkinv2
-
       buildCheckinList("#checkin-list");
+      buildUserListPage();
 
       $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
         transition: 'flow',
@@ -164,69 +161,6 @@ function signup() {
     return false;
 }
 
-// *****************************************************************************
-// 
-// NEW IN CHECKINV2
-// 
-// *****************************************************************************
-
-
-
-
-// *****************************************************************************
-
-function buildCheckinList(listDomId, username) {
-
-  $("#checkin-list-username").html( user.get("username") );
-  
-  $(listDomId).empty();
-
-  if (username) {
-
-    // get feed for specific user 
-
-    // coming soon...
-
-  } else {
-
-    // get feed from all users that current user follows
-
-    client.getFeedForUser(user.get("username"), 
-     function(err, response, userCheckins) {
-
-      if (err) {
-        alert("read failed");
-
-      } else {
-
-        for ( i = 0; i < userCheckins.length; i++ ) {
-          var e = userCheckins[i];
-          var c = new Usergrid.Entity({"client": client, "data": e }); 
-          appendCheckin(listDomId, c);
-        }
-
-        if ( $(listDomId).hasClass('ui-listview')) {
-           $(listDomId).listview('refresh');
-        } else {
-           $(listDomId).trigger('create');
-        }
-
-      }
-    });
-
-  }
-}
-
-function appendCheckin(listDomId, c) {
-    $(listDomId).append(
-      "<li data-theme='c'>" +
-        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
-        "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
-        "<p>" + c.get("location") + "</p>" +
-        "</a>" +
-      "</li>");
-}
-
 
 // *****************************************************************************
 
@@ -245,8 +179,7 @@ function checkin() {
     }
   };
 
-  client.createUserActivity(user.get("username"), data, 
-    function( err, response, activity ) {
+  client.createUserActivity(user.get("username"), data, function( err, response, activity ) {
 
     if (err) {
       alert("Error on check-in");
@@ -289,4 +222,196 @@ function showCheckinPage(uuid) {
     }
   });
 
+}
+
+
+// *****************************************************************************
+
+function buildCheckinList(listDomId, username) {
+
+  $("#checkin-list-username").html( user.get("username") );
+
+  $(listDomId).empty();
+
+  if (username) {
+
+    // get feed for specific user 
+
+    var options = {
+        client: client, 
+        type: "activities",
+        qs: { ql: "select * where actor.username='" + username + "'" }
+    };
+    
+    var userCheckins = new Usergrid.Collection(options);
+    
+    userCheckins.fetch(function(err, response, userCheckins) {
+
+      if (err) {
+        alert("read failed");
+
+      } else {
+
+        while (userCheckins.hasNextEntity()) {
+          var c = userCheckins.getNextEntity();
+          appendCheckin(listDomId, c);
+        }
+
+        $(listDomId).listview("refresh");
+      }
+    });
+
+
+  } else {
+
+    // get feed from all users that current user follows
+
+    client.getFeedForUser(user.get("username"), function(err, response, userCheckins) {
+
+      if (err) {
+        alert("read failed");
+
+      } else {
+
+        for ( i = 0; i < userCheckins.length; i++ ) {
+          var e = userCheckins[i];
+          var c = new Usergrid.Entity({"client": client, "data": e }); 
+          appendCheckin(listDomId, c);
+        }
+
+        if ( $(listDomId).hasClass('ui-listview')) {
+           $(listDomId).listview('refresh');
+        } else {
+           $(listDomId).trigger('create');
+        }
+
+      }
+    });
+
+  }
+}
+
+function appendCheckin(listDomId, c) {
+    $(listDomId).append(
+      "<li data-theme='c'>" +
+        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
+        "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
+        "<p>" + c.get("location") + "</p>" +
+        "</a>" +
+      "</li>");
+}
+
+
+// *****************************************************************************
+// 
+//                             NEW IN CHECKINV3
+// 
+// *****************************************************************************
+
+// user list and ability to follow users
+
+function buildUserListPage() {
+
+  $("#user-list").empty();
+
+  users = new Usergrid.Collection({"client": client, "type": "user" });
+
+  users.fetch(function(err, response, self) {
+
+    if (err) {
+      alert("read failed");
+
+    } else {
+
+      while ( users.hasNextEntity() ) {
+        var u = users.getNextEntity();
+        $("#user-list").append(
+            "<li data-theme='c'>" +
+                "<a onclick='showUserPage(\"" + u.get("uuid") + "\")'>" +
+                "<h2>" + u.get("name") + "</h2>" +
+                "<p>" + u.get("username") + "</p>" +
+                "</a>" +
+            "</li>");
+      } 
+
+      if ( $('#user-list').hasClass('ui-listview')) {
+         $('#user-list').listview('refresh');
+      } else {
+         $('#user-list').trigger('create');
+      }
+
+    }
+  });
+
+}
+
+
+// *****************************************************************************
+
+function showUserPage(uuid) {
+
+  var id = {'uuid': uuid, 'type': 'user'}
+
+  client.getEntity(id, function(err, result, viewedUser ) {
+
+    if (!err && viewedUser ) {
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#view-user-page", {
+        transition: 'flow',
+        reload: true
+      });
+
+      $("#view-user-name").html( viewedUser.get("name"));
+      $("#view-user-username").html( viewedUser.get("username"));
+
+      $("#user-checkin-list").empty();
+      buildCheckinList("#user-checkin-list", viewedUser.get("username"));
+
+      if ( user.get("uuid") == viewedUser.get("uuid")) {
+          $("#follow-button").hide();
+
+      } else {
+
+        var options = {
+            method: 'GET',
+            endpoint: 'users/' + user.get("username") + '/following/users/' + viewedUser.get("uuid") 
+        };
+
+        client.request(options, function (err, data) {
+            if (err) {
+                // user is not found in followers connections
+                $("#follow-button").show();
+            } else {
+                // current user already follows this user
+                $("#follow-button").hide();
+            }
+        });
+
+      }
+
+    } else {
+      alert("Cannot get user entity " + uuid);
+    }
+  });
+}
+
+
+// *****************************************************************************
+
+function followUser() {
+
+    var target = $("#view-user-username").html();
+
+    var options = {
+        method: 'POST',
+        endpoint: 'users/' + user.get("username") + '/following/users/' + target
+    };
+
+    client.request(options, function (err, data) {
+        if (err) {
+            alert("Unable to follow user " + target);
+        } else {
+            alert("Followed user " + target);
+        }
+    });
 }
