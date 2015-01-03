@@ -23,12 +23,15 @@ var checkins;
 
 var client = new Usergrid.Client({
   appName: 'checkin1',
+
   orgName: 'test-organization',
   URI: 'http://10.1.1.161:8080',
 
-  //orgName: 'snoopdave',
-  //URI: 'https://api.usergrid.com',
+  // orgName: 'snoopdave',
+  // URI: 'https://api.usergrid.com',
 });
+
+// *****************************************************************************
 
 $(document).on("mobileinit", function() {
  
@@ -50,7 +53,8 @@ $(document).on("mobileinit", function() {
                 $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
                     transition: 'flow',
                     reload: true
-                 });
+                });
+                buildCheckinList("#checkin-list");
 
             } else {
                 user = entity;
@@ -75,6 +79,7 @@ function login() {
   var password = $("#login-password").val();
 
   client.login(username, password, function(err, response, entity) {
+
     if (err) {
       alert(err);
 
@@ -89,6 +94,10 @@ function login() {
 
       document.loginForm.username.value = "";
       document.loginForm.password.value = "";
+
+      // new in checkinv2
+
+      buildCheckinList("#checkin-list");
 
       $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
         transition: 'flow',
@@ -153,4 +162,131 @@ function signup() {
     }
 
     return false;
+}
+
+// *****************************************************************************
+// 
+// NEW IN CHECKINV2
+// 
+// *****************************************************************************
+
+
+
+
+// *****************************************************************************
+
+function buildCheckinList(listDomId, username) {
+
+  $("#checkin-list-username").html( user.get("username") );
+  
+  $(listDomId).empty();
+
+  if (username) {
+
+    // get feed for specific user 
+
+    // coming soon...
+
+  } else {
+
+    // get feed from all users that current user follows
+
+    client.getFeedForUser(user.get("username"), 
+     function(err, response, userCheckins) {
+
+      if (err) {
+        alert("read failed");
+
+      } else {
+
+        for ( i = 0; i < userCheckins.length; i++ ) {
+          var e = userCheckins[i];
+          var c = new Usergrid.Entity({"client": client, "data": e }); 
+          appendCheckin(listDomId, c);
+        }
+
+        if ( $(listDomId).hasClass('ui-listview')) {
+           $(listDomId).listview('refresh');
+        } else {
+           $(listDomId).trigger('create');
+        }
+
+      }
+    });
+
+  }
+}
+
+function appendCheckin(listDomId, c) {
+    $(listDomId).append(
+      "<li data-theme='c'>" +
+        "<a onclick='showCheckinPage(\"" + c.get("uuid") + "\")'>" +
+        "<b>@" + c.get("actor").username + "</b>: " + c.get("content") +
+        "<p>" + c.get("location") + "</p>" +
+        "</a>" +
+      "</li>");
+}
+
+
+// *****************************************************************************
+
+function checkin() {
+
+  var content =  document.checkinForm.content.value;
+  var location = document.checkinForm.location.value;
+
+  var data = {
+    type: "checkin",
+    content: content,
+    location: location,
+    verb: "post",
+    actor: {
+      username: user.get("username")
+    }
+  };
+
+  client.createUserActivity(user.get("username"), data, 
+    function( err, response, activity ) {
+
+    if (err) {
+      alert("Error on check-in");
+
+    } else {
+      buildCheckinList("#checkin-list");
+      document.checkinForm.content.value = "";
+      document.checkinForm.location.value = "";
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
+        transition: 'flow',
+        reload: true
+      });
+    }
+  });
+
+}
+
+
+// *****************************************************************************
+
+function showCheckinPage(uuid) {
+
+  var id = {'uuid': uuid, 'type': 'activity'}; 
+
+  client.getEntity(id, function(err, result, activity) {
+
+    if (!err && activity ) {
+      $("#view-checkin-content").html( activity.get("content"));
+      $("#view-checkin-location").html( activity.get("location"));
+      $("#view-checkin-username").html( activity.get("actor").username );
+
+      $(":mobile-pagecontainer").pagecontainer("change", "#view-checkin-page", {
+        transition: 'flow',
+        reload: true
+      });
+
+    } else {
+      alert("Cannot get entity " + name);
+    }
+  });
+
 }

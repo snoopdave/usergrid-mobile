@@ -19,19 +19,18 @@
 <html>
 
   <head>
-    <title>Checkinv1</title>
+    <title>Checkinv2</title>
 
     <meta name="format-detection" content="telephone=no" />
     <!-- WARNING: for iOS 7, remove the width=device-width and 
     height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <script src="js/jquery-1.8.2.min.js"></script> 
     <script src="js/usergrid.js"></script>
@@ -49,24 +48,26 @@
     <div data-role="page" id="login-page" data-theme="a">
 
       <div data-role="header" data-theme="a">
-        <h2>Login to Checkinv1</h2>
+        <h2>Login to Checkinv2</h2>
       </div>
 
       <div data-role="content">
         <h2>Please Login</h2>
 
         <form name="loginForm">
+
             <label for="username">Username</label>
-            <input id="login-username" type="text" name="username" >
+            <input id="login-username" type="text" name="username">
 
             <label for="password">Password</label>
-            <input id="login-password" type="password" name="password" >
+            <input id="login-password" type="password" name="password">
 
             <a id="btn-login" 
                 data-role="button" 
                 data-inline="true" 
                 onclick="login()"
                 >Login</a>
+
         </form>
 
         <p>Or <a href="#signup-page">sign-up</a> for a new account</p>
@@ -85,7 +86,7 @@
     <div data-role="page" id="signup-page" data-theme="a">
 
       <div data-role="header" data-theme="a">
-        <h2>Sign-up for Checkinv1</h2>
+        <h2>Sign-up for Checkinv2</h2>
       </div>
 
       <div data-role="content">
@@ -119,18 +120,34 @@
 
     </div>
 
-    <!-- ******************************************************************* -->
 
-    <!-- CHECKIN PLACEHOLDER -->
+    <!--
+    // ************************************************************************
+    // 
+    //                             NEW IN CHECKINV2
+    // 
+    // ************************************************************************
+    -->
+
+    <!-- CHECKIN LIST -->
 
     <div data-role="page" id="checkin-list-page" data-theme="a">
 
       <div data-role="header" data-theme="a">
-        <h2>Checkinv1</h2>
+        <h2>Checkinv2</h2>
+        <a id="btn-compose" 
+           href="#add-page" 
+           data-role="button" 
+           data-icon="plus" 
+           data-iconpos="right" 
+           data-inline="true" 
+           class="ui-btn-right"
+           >Check-in</a>
       </div>
 
       <div data-role="content">
-        Content coming soon...
+        <ul  id="checkin-list" data-role="listview">
+        </ul>
       </div>
 
       <div data-role="footer" data-theme="a">
@@ -147,9 +164,77 @@
 
     </div>
 
-    <div data-role="footer" data-theme="a">
-      <h4>Powered by Apache Usergrid</h4>
+
+    <!-- ADD CHECKIN -->
+
+    <div data-role="page" id="add-page" data-control-title="Add Checkin">
+
+      <div data-theme="a" data-role="header">
+        <h1>Check-in</h1>
+      </div>
+
+      <div data-role="content">
+
+        <form name="checkinForm">
+          <label for="content">What's up?</label>
+          <textarea id="content"></textarea>
+
+          <label for="location">Location</label>
+          <textarea id="location"></textarea>
+        </form>    
+
+        <a href="#list-page" 
+           data-role="button" 
+           data-rel="back"
+           data-theme="c" 
+           data-inline="true" 
+           >Cancel</a>
+
+        <button id="create-button" data-inline="true" 
+                onclick="checkin()">Complete Check-in</button>
+
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
+    </div> 
+
+    <!-- ******************************************************************* -->
+
+    <!-- VIEW CHECKIN -->
+
+    <div data-role="page" id="view-checkin-page" data-control-title="Show Checkin">
+
+      <div data-theme="a" data-role="header">
+        <h1>View Check-in</h1>
+      </div>
+
+      <div data-role="content">
+
+        <p> <b><span id="view-checkin-username"></span></b>: 
+            <span id="view-checkin-content"> </p>
+            
+        <p> <span id="view-checkin-location"> </p>
+
+        <a href="#checkin-list-page" 
+           data-role="button" 
+           data-rel="back"
+           data-theme="c" 
+           data-inline="true" 
+           >Back</a>
+
+      </div>
+
+      <div data-role="footer" data-theme="a">
+        <h4>Powered by Apache Usergrid</h4>
+      </div>
+
     </div>
+
+    <!-- ******************************************************************* -->
+
 
   </body>
 </html>
