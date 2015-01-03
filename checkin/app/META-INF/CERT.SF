@@ -1,0 +1,318 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: PXMoBRy4YRy5Q+2cNzEhEa4+yjo=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/ProgressEvent.js
+SHA1-Digest: SHz2zufUm+KPPcJMKn25SgSDH9c=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactError.
+ js
+SHA1-Digest: 0GULQ7SH6sNytNL3bHOBptd9J+A=
+
+Name: assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverOp
+ tions.js
+SHA1-Digest: GC8Rb7mW+L90XJr10TQdVRbckLU=
+
+Name: assets/www/js/main.js
+SHA1-Digest: rPOhcdZ1jQzTYvaZX+jogIttwKg=
+
+Name: res/xml/config.xml
+SHA1-Digest: U9gB6sXySaG+eBp7SAJngW8PiW4=
+
+Name: assets/www/plugins/org.apache.cordova.device-motion/www/Accelera
+ tion.js
+SHA1-Digest: dyaasGHo00tu4bSH/enQVKHTa6c=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileUploadResult.
+ js
+SHA1-Digest: f/EJIMxUKsIMl3uInn7MpsBxEQM=
+
+Name: assets/www/plugins/org.apache.cordova.camera/www/CameraPopoverHa
+ ndle.js
+SHA1-Digest: DaiTOkmuEYcHWmuPgAkXCQGzuF8=
+
+Name: assets/www/js/index-orig.js
+SHA1-Digest: 5V+ou1EYg9HHE/7h3ZsrTf+yXZU=
+
+Name: assets/www/plugins/org.apache.cordova.device-motion/www/accelero
+ meter.js
+SHA1-Digest: n+JuEpZNQMyRKHkGF99tB7xzE3w=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/DirectoryEntry.js
+SHA1-Digest: NZXu9ZfNzHudkztfD12k+oslfmU=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/fileSystems.js
+SHA1-Digest: ZPOwoEQgJ/4y5Zh+8D4GQFz1wrU=
+
+Name: res/drawable-land-hdpi/screen.png
+SHA1-Digest: uTXQbnupCBsilxb+YldRnQ6TXFo=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/MediaFil
+ e.js
+SHA1-Digest: G987A8cda4MRX2ezOLbklsptC0Y=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: pgEItzOCOvcy4M22wawzdn8AvEc=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/android/FileSyste
+ m.js
+SHA1-Digest: bDhac+AS7QuGVn1pUFDIHxkgo+M=
+
+Name: assets/www/plugins/org.apache.cordova.device-orientation/www/com
+ pass.js
+SHA1-Digest: vqnOF+acVd+nuEcN3/6zHvm9zmI=
+
+Name: assets/www/plugins/org.apache.cordova.network-information/www/Co
+ nnection.js
+SHA1-Digest: th9oNaphXkU4o2sO57yf3W3/7JA=
+
+Name: res/drawable-port-ldpi/screen.png
+SHA1-Digest: 4XJO0VCm6VV33aOisH4DyQjifO8=
+
+Name: res/drawable-port-xhdpi/screen.png
+SHA1-Digest: 4J3pX+bDE8xf/IUEZxIoBcWmMNs=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileSystem.js
+SHA1-Digest: 7C6q+rAstBB6EK34bC836K8/x64=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: I+SEqsBnwMDqxwQwabdUcjyZR9o=
+
+Name: assets/www/plugins/org.apache.cordova.camera/www/Camera.js
+SHA1-Digest: Pe9OR++bxKDWd//+Se7rVrf8m5Q=
+
+Name: assets/www/plugins/org.apache.cordova.dialogs/www/android/notifi
+ cation.js
+SHA1-Digest: 4wHWoYBSYcnkl3lRrVh5LSoI9LA=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/CaptureA
+ udioOptions.js
+SHA1-Digest: mmEFTByy9Zj8uoqwqYFDvxWz8iI=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/Flags.js
+SHA1-Digest: E4tUfQNwBuZOW4bLoPcgPjwll/Q=
+
+Name: assets/www/plugins/org.apache.cordova.file-transfer/www/FileTran
+ sfer.js
+SHA1-Digest: Fn1mORe9pP8S5iuHeiskeX0Ej9c=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/DirectoryReader.j
+ s
+SHA1-Digest: zwF8Zc/5T0HWFzd7KFvMsNbZu/Y=
+
+Name: assets/www/plugins/org.apache.cordova.splashscreen/www/splashscr
+ een.js
+SHA1-Digest: poDAElj1Xvk/cYfQ4uDpwHLsoKY=
+
+Name: assets/www/plugins/org.apache.cordova.dialogs/www/notification.j
+ s
+SHA1-Digest: KQRL7MWYu58j7Ucaygf6ARidve0=
+
+Name: res/drawable-land-xhdpi/screen.png
+SHA1-Digest: W/4iym3R6TsT6v0LH1YsMHZcjHE=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/Contact.js
+SHA1-Digest: A5itfyV4gXqlNkGDc9SJBDOnaEc=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/contacts.js
+SHA1-Digest: n87vvwtkS0f0Sakvx6bLzw5TrHw=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactField.
+ js
+SHA1-Digest: zmSaqNcwWROoXpMNMJGQxGU9v38=
+
+Name: assets/_where-is-www.txt
+SHA1-Digest: XyoRHUmqQWhFqkB6tnerFbQr+4I=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactFindOp
+ tions.js
+SHA1-Digest: Nt11TL9FrQXdJ4HGKbcp7PQjRU8=
+
+Name: assets/www/cordova.js
+SHA1-Digest: PUtlbFwcQSKfEITNYvVysylfGpU=
+
+Name: assets/www/plugins/org.apache.cordova.device/www/device.js
+SHA1-Digest: zb64XC0pcWmF36ykhdU7oz+G2Zw=
+
+Name: res/drawable-land-ldpi/screen.png
+SHA1-Digest: NOfZQmACPG6/aWKP/tdB59hHNCs=
+
+Name: assets/www/plugins/org.apache.cordova.network-information/www/ne
+ twork.js
+SHA1-Digest: sFvS6jXxHDt52T8rwicnOU1HzyE=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileUploadOptions
+ .js
+SHA1-Digest: I/6ADRJtFfOnI1XcMlmBBzZhBZk=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactOrgani
+ zation.js
+SHA1-Digest: Oja08VS2P+ApabELHuK1okdedSM=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/LocalFileSystem.j
+ s
+SHA1-Digest: SFV9C74DW9Wvz3Y6GlS75sio9h0=
+
+Name: assets/www/plugins/org.apache.cordova.vibration/www/vibration.js
+SHA1-Digest: Zwpxh5CgTv65wy0KU3pttAAWlAM=
+
+Name: assets/www/index.html
+SHA1-Digest: 87ElTTJ8CA0vPMTSXSFQEzzVQmc=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/capture.
+ js
+SHA1-Digest: bBXX63J26Swkvr9Wd04i69ZLIhc=
+
+Name: assets/www/plugins/org.apache.cordova.camera/www/CameraConstants
+ .js
+SHA1-Digest: ROkdY2ZIoMOrXJKdRA/ir7fo7NQ=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/Metadata.js
+SHA1-Digest: HPgTH1k1JYNKZgMT+lN3TptoccA=
+
+Name: assets/www/index-orig.html
+SHA1-Digest: Qovb1ip9R4t8MD5ZMnbT0xlNzCM=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/File.js
+SHA1-Digest: CiWogShGQFGSw6/kKjUOxHSOUwo=
+
+Name: assets/www/js/usergrid.js
+SHA1-Digest: rog9ryJZ5uzNRrsTIXgXKGuIZOw=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/fileSystems-roots
+ .js
+SHA1-Digest: UgTYHxglwikhpcaaWeQhhZXvMDw=
+
+Name: assets/www/css/index.css
+SHA1-Digest: N6YHp1iN/uYTIqkQjm7UYE+rVzU=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/fileSystemPaths.j
+ s
+SHA1-Digest: UExUN2sichGCTTk/OdFgcZCdNUs=
+
+Name: resources.arsc
+SHA1-Digest: wQxM/eIFgw6L8nt3WQe9Y04Q0fY=
+
+Name: assets/www/plugins/org.apache.cordova.device-orientation/www/Com
+ passHeading.js
+SHA1-Digest: siCXKWrWKkytJ8xLoNz5m9AUCCM=
+
+Name: assets/www/css/images/ajax-loader.gif
+SHA1-Digest: LBhBajEAjJHGFlAIpd5hTwE425E=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactFieldT
+ ype.js
+SHA1-Digest: RGyP2ut/JfNRjC8cLS9LbeB/Kf0=
+
+Name: AndroidManifest.xml
+SHA1-Digest: K2f1ZneQUKsS8ZhHPfH2mmXwHP8=
+
+Name: assets/www/img/logo.png
+SHA1-Digest: YK5vVHXnrWkBUKYiYlRwAZZ/zWU=
+
+Name: assets/www/plugins/org.apache.cordova.media/www/MediaError.js
+SHA1-Digest: ++uTG6gEU3POOIUemTxtJ8khNPM=
+
+Name: assets/www/plugins/org.apache.cordova.battery-status/www/battery
+ .js
+SHA1-Digest: RG3D2Eb3CJFirJvbVO8OIiadPHQ=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/requestFileSystem
+ .js
+SHA1-Digest: op6dZfJewfKi9C763w9IsvLDUe4=
+
+Name: assets/www/css/jquery.mobile-1.4.3.css
+SHA1-Digest: rqAWenculQQpGBenu4yOk5zswJ4=
+
+Name: assets/www/js/jquery.mobile-1.4.3.min.js
+SHA1-Digest: PR2nuYTrpfH+8L9wToW4Odhc8cs=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/resolveLocalFileS
+ ystemURI.js
+SHA1-Digest: Pncy9Bkb/ub+LHBw6VO5zbWfrEY=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/MediaFil
+ eData.js
+SHA1-Digest: 5TxpIoZ+Sl6XStB7YS9OfIUD+/k=
+
+Name: assets/www/plugins/org.apache.cordova.device-orientation/www/Com
+ passError.js
+SHA1-Digest: whZFyRtCejFwkRpHuA4i5AGQOLc=
+
+Name: assets/www/plugins/org.apache.cordova.globalization/www/globaliz
+ ation.js
+SHA1-Digest: cxnN0jpTE20sC0UC4S+lDeymt6I=
+
+Name: assets/www/plugins/org.apache.cordova.media/www/Media.js
+SHA1-Digest: CkoZpPsySf7chnB07cW99femJ3E=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/CaptureV
+ ideoOptions.js
+SHA1-Digest: yu9JX0ReyWS4ZRG+dVRb7DHpKoo=
+
+Name: assets/www/plugins/org.apache.cordova.globalization/www/Globaliz
+ ationError.js
+SHA1-Digest: 2WUvlz2/NV6udAXRd2kg7c1JDXQ=
+
+Name: res/drawable-xhdpi/icon.png
+SHA1-Digest: ILtevW7iM+NOQc5r/erwvaQ8m9U=
+
+Name: res/drawable-port-mdpi/screen.png
+SHA1-Digest: DUtEFj1g2TKEbb/vpKd2AdFJqdY=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileReader.js
+SHA1-Digest: ypYxM0drkJtmlDQb9KdB+tJOMAQ=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactAddres
+ s.js
+SHA1-Digest: YWCW6pr0coA9FLEyGjEtamrgjX4=
+
+Name: assets/www/cordova_plugins.js
+SHA1-Digest: /ocN+/vrvb/MZt9S5i/hj12NrYY=
+
+Name: classes.dex
+SHA1-Digest: pqqY6R9QrZMHR9IyvtwFr9X65ps=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileEntry.js
+SHA1-Digest: PjMYGH/AACkIWygWFjCK+b48wG8=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/CaptureI
+ mageOptions.js
+SHA1-Digest: 47klmghSDVQ0P0zJo3kcazJtpKY=
+
+Name: res/drawable-port-hdpi/screen.png
+SHA1-Digest: Go9QVFH+i7Om9h8mB/oT9vRsM30=
+
+Name: assets/www/js/jquery-1.8.2.min.js
+SHA1-Digest: 8QevagGIcz+BDJrf0pgx/O7sJiE=
+
+Name: assets/www/plugins/org.apache.cordova.media-capture/www/CaptureE
+ rror.js
+SHA1-Digest: 5/6wPimb+uynuVifr/9ZK27Dgq8=
+
+Name: assets/www/plugins/org.apache.cordova.file-transfer/www/FileTran
+ sferError.js
+SHA1-Digest: w6YxxPOYQOpCbn9cgfACpihuaO4=
+
+Name: res/drawable/icon.png
+SHA1-Digest: uvuielAB8iUnMLObHEXVenPOa+o=
+
+Name: assets/www/plugins/org.apache.cordova.contacts/www/ContactName.j
+ s
+SHA1-Digest: uv5oRqBnXo1v5jZTrqr13CseTMs=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/Entry.js
+SHA1-Digest: dkMhdkZh8PRyvkLlNpZ5AcbEYX0=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileError.js
+SHA1-Digest: e5xMFIZlBrKd+qdd18MBeyWXS6o=
+
+Name: res/drawable-land-mdpi/screen.png
+SHA1-Digest: Bbz8mtr8a2sru8298Pz5y+bjqX0=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: XfAbtw3zuMWQbGTvbbw/KIngfT0=
+
+Name: assets/www/plugins/org.apache.cordova.file/www/FileWriter.js
+SHA1-Digest: F0HDRVmbUQEfLhX4LjQihvaC0lM=
+

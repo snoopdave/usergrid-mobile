@@ -1,0 +1,75 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*
+Naughty Android will zoom the app when the keyboard appears. One way to prevent 
+this is to add to the <activity> element in AndroidManifest.xml this attribute:
+
+    android:windowSoftInputMode="adjustPan"
+
+For more information see Michael Brooks' blog:
+http://solutions.michaelbrooks.ca/2011/07/05/android-soft-keyboard-resizes-web-view/
+*/
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4)
+    );
+    background-attachment:fixed;
+    font-size:10px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+h2 {
+    font-size: 1.2em;    
+}
+
+label {
+    font-size: 1em;    
+}
+
+element.style {
+    height: 1em;
+}
+
+.ui-btn {
+    font-size: 1em;
+}
+
+.ui-header h2.ui-title {
+    font-size: 1.3em;
+}
+
+.ui-footer h2.ui-title {
+    font-size: 1.4em;
+}
