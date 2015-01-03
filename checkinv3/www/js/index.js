@@ -51,7 +51,7 @@ $(document).on("mobileinit", function() {
                 $(":mobile-pagecontainer").pagecontainer("change", "#login-page", {
                     transition: 'flow',
                     reload: true
-                 });
+                });
 
             } else {
                 user = entity;
@@ -369,8 +369,24 @@ function showUserPage(uuid) {
 
       if ( user.get("uuid") == viewedUser.get("uuid")) {
           $("#follow-button").hide();
+
       } else {
-          $("#follow-button").show();
+
+        var options = {
+            method: 'GET',
+            endpoint: 'users/' + user.get("username") + '/following/users/' + viewedUser.get("uuid") 
+        };
+
+        client.request(options, function (err, data) {
+            if (err) {
+                // user is not found in followers connections
+                $("#follow-button").show();
+            } else {
+                // current user already follows this user
+                $("#follow-button").hide();
+            }
+        });
+
       }
 
     } else {

@@ -95,6 +95,8 @@ function login() {
       document.loginForm.username.value = "";
       document.loginForm.password.value = "";
 
+      // new in checkinv2
+
       buildCheckinList("#checkin-list");
 
       $(":mobile-pagecontainer").pagecontainer("change", "#checkin-list-page", {
