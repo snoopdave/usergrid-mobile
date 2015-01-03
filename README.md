@@ -9,6 +9,8 @@ This example app is was initially created by the Apache Cordova command line tim
 There are four versions of the app: v1, v2, v3 and v4. Each one of these versions 
 is a branch in this GitHub repo and each represents a stage in the development of the app.
 
+Branches representing stages of project development:
+
 * [v1](https://github.com/snoopdave/usergrid-mobile/tree/v1) - Version one is the initial version 
 of the app. After I created the app with Apache Cordova I added the Usergrid SDK, jQuery, jQuery 
 Mobile and the ability for users to sign-up and to login.
