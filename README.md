@@ -1,4 +1,4 @@
-usergrid-mobile
+usergrid-mobile v4
 ===============
 
 Example code for my talk about building mobile apps with Apache Usergrid, jQuery Mobile and Apache Cordova. You can view a screencast of the talk on YouTube: 
