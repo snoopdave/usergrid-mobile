@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="org.usergrid.samples" version="1.0.0">
-    <name>checkin1</name>
+    <name>checkin</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
