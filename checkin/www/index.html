@@ -135,13 +135,9 @@
 
       <div data-role="header" data-theme="a">
         <h2>Checkinv2</h2>
-        <a id="btn-compose" 
-           href="#add-page" 
-           data-role="button" 
-           data-icon="plus" 
-           data-iconpos="right" 
-           data-inline="true" 
-           class="ui-btn-right"
+        <a id="btn-checkin" href="#add-page"
+           data-role="button" data-icon="plus" data-iconpos="right"
+           data-inline="true" class="ui-btn-right"
            >Check-in</a>
       </div>
 
@@ -152,13 +148,9 @@
 
       <div data-role="footer" data-theme="a">
         <h4>Logged in as: <span id="checkin-list-username"></span></h4>
-        <a id="btn-compose" 
-           onclick="logout()"
-           data-role="button" 
-           data-icon="plus" 
-           data-iconpos="right" 
-           data-inline="true" 
-           class="ui-btn-right"
+        <a id="btn-logout" onclick="logout()"
+           data-role="button" data-icon="plus data-iconpos="right"
+           data-inline="true" class="ui-btn-right"
            >Logout</a>
       </div>
 
@@ -183,12 +175,8 @@
           <textarea id="location"></textarea>
         </form>    
 
-        <a href="#list-page" 
-           data-role="button" 
-           data-rel="back"
-           data-theme="c" 
-           data-inline="true" 
-           >Cancel</a>
+        <a href="#list-page"  data-role="button"  data-rel="back"
+           data-theme="c"  data-inline="true"  >Cancel</a>
 
         <button id="create-button" data-inline="true" 
                 onclick="checkin()">Complete Check-in</button>

@@ -182,9 +182,7 @@ function buildCheckinList(listDomId, username) {
   $(listDomId).empty();
 
   if (username) {
-
-    // get feed for specific user 
-
+    // get feed for specific user
     // coming soon...
 
   } else {
