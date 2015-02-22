@@ -1,4 +1,4 @@
-usergrid-mobile 
+usergrid-mobile
 ===============
 
 Example code for my talk about building mobile apps with Apache Usergrid, jQuery Mobile and Apache Cordova. You can view a screencast of the talk on YouTube: 
@@ -22,5 +22,3 @@ of those that they follow.
 * [v4](https://github.com/snoopdave/usergrid-mobile/tree/v4) - In the fourth stage of the 
 project I added the code necessary for Apache Cordova to work together with jQuery Mobile. 
 This is the version of the app that can be launched in a phone emulator by Apache Cordova.
-
-
