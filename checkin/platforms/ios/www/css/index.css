@@ -43,7 +43,7 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    font-size:10px;
+    font-size:14px;
     height:100%;
     margin:0px;
     padding:0px;
@@ -73,6 +73,6 @@ a.ui-btn {
 }
 
 label {
-    font-size: 0.7em;
+    font-size: 1.0em;
 }
 

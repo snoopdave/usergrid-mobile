@@ -58,10 +58,10 @@
 
         <form name="loginForm">
 
-            <label for="username">Username</label>
+            <label for="login-username">Username</label>
             <input id="login-username" type="text" name="username">
 
-            <label for="password">Password</label>
+            <label for="login-password">Password</label>
             <input id="login-password" type="password" name="password" >
 
             <a id="btn-login" 
@@ -95,20 +95,20 @@
         <h2>New Account Info</h2>
 
         <form name="signupForm" onsubmit="return signup()">
-          <label for="name">Name</label> 
-          <input type="text" name="name" required >
+          <label for="signup-name">Name</label>
+          <input id="signup-name" type="text" name="name" required >
 
-          <label for="username">Username</label> 
-          <input type="text" name="username" required>
+          <label for="signup-username">Username</label>
+          <input id="signup-username" type="text" name="username" required>
 
-          <label for="email">Email</label> 
-          <input type="email" name="email" required>
+          <label for="signup-email">Email</label>
+          <input id="signup-email" type="email" name="email" required>
 
-          <label for="password">Password</label>
-          <input type="password" name="password" required>
+          <label for="signup-password">Password</label>
+          <input id="signup-password" type="password" name="password" required>
 
-          <label for="passwordconfirm">Password (confirm)</label>
-          <input type="password" name="passwordconfirm" required>
+          <label for="signup-passwordconfirm">Password (confirm)</label>
+          <input id="signup-passwordconfirm" type="password" name="passwordconfirm" required>
 
           <input id="btn-signup-save" type="submit" data-inline="true" value="Sign-up">
           <a id="btn-signup-cancel" data-inline="true" href="#login-page">Cancel</a>
@@ -177,8 +177,8 @@
 
       <div data-role="content">
 
-        <p> <b><span id="view-checkin-username"></span></b>: <span id="view-checkin-content"> </p>
-        <p> <span id="view-checkin-location"> </p>
+        <p> <b><span id="view-checkin-username"></span></b>: <span id="view-checkin-content"></span> </p>
+        <p> <span id="view-checkin-location"></span> </p>
 
         <a href="#checkin-list-page" 
            data-role="button" 
@@ -210,7 +210,7 @@
 
       <div data-role="header" data-theme="a">
         <h2>Check-ins</h2>
-        <a id="btn-compose" 
+        <a id="btn-add-page"
            href="#add-page" 
            data-role="button" 
            data-iconpos="right" 
@@ -219,7 +219,7 @@
            class="ui-btn-left"
            >Check-in</a>
 
-        <a id="btn-compose" 
+        <a id="btn-logout"
            onclick="logout()"
            data-role="button" 
            data-iconpos="right" 
@@ -280,11 +280,7 @@
 
       <div data-role="content">
 
-        <p id="view-user-name"></p>
-        <p id="view-user-username"></p>
-
         <div class="ui-body">
-          <p> <span id="view-user-username"> </p>
 
           <a href="#user-list-page" 
              data-role="button" 
